@@ -1,0 +1,81 @@
+*, *:before, *:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	min-height: 100%;
+	background-color: #000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+.text-wrapper-outer {
+	perspective: 800px;
+}
+.text-wrapper {
+	text-align: center;
+    max-width: 450px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 90px;
+    color: #FFD440;
+    cursor: pointer;
+    margin: 0 auto;
+    transform: rotateX(38deg) scaleY(1.2);
+    transform-origin: top;
+    line-height: 1;
+    opacity: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.text-wrapper.complete {
+	opacity: 1;
+}
+.text-wrapper > div {
+	display: inline-flex;
+	margin: 0 10px 30px;
+}
+.text-wrapper > div:first-child {
+	display: block;
+}
+.text-wrapper span {
+	display: inline-block;
+}
+.text-wrapper span.active {
+	animation: bounce 0.35s forwards ease;
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0px) scaleY(1);
+	}
+	15% {
+		transform: translateY(10px) scaleY(0.8);
+	}
+	60% {
+		transform: translateY(-30px) scaleY(1.3);
+	}
+	100% {
+		transform: translateY(0px) scaleY(1);
+	}
+}
+
+@media screen and (max-width: 767px) {
+	body {
+		position: fixed;
+	    top: 0;
+	    width: 100%;
+	}
+	.text-wrapper {
+		font-size: 64px;
+		max-width: 360px;
+	}
+}
